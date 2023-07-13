@@ -5,5 +5,5 @@ module.exports = {
     //         errors: false,
     //     },
     // },
-    lintOnSave: false, w
+    lintOnSave: false
 };
