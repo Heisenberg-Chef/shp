@@ -1,6 +1,7 @@
-// webpack打包的入口文件
-import count from "@/js/count";
-import sum from "@/js/sum";
+import css from "./css/index.css"
+import count from "./js/count"
+import sum from "./js/sum"
+import less from "./less/index.less"
 
 console.log(count(2, 1));
 
