@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600px" height="450"></canvas>
+</body>
+<script>
+    let canvas = document.querySelector('canvas');
+    // 获取画布上下文
+    let ctx = canvas.getContext('2d'); // 3d ：webGL
+    // 绘制线段：绘制线段的起点的设置
+    ctx.moveTo(100, 100);
+    // 画线
+    ctx.lineTo(200, 200);
+    ctx.lineTo(200, 100);
+    // 绘制闭合图形
+    ctx.closePath();
+    // 填充多边形物体颜色
+    ctx.fillStyle = "red";
+    ctx.fill();
+    // 设定线段样式
+    ctx.strokeStyle = "purple";
+    ctx.lineWidth = "20";
+    // 绘制线段
+    ctx.stroke()
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="echarts.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<body>
+    <!-- 准备一个div容器，展示图表区域 -->
+    <div id="main" style="width: 600px; height: 400px;">
+
+    </div>
+</body>
+<script>
+    let dom = document.querySelector("div");
+    let mycharts = echarts.init(dom);
+    // 指定图表的配置与数据
+    mycharts.setOption({
+        title: {
+            text: '柱状图',
+            subtext: "echarts基本使用"
+        },
+        // x 轴
+        xAxis: {
+            data: ["直播", "游戏", "电影", "生活"]
+        },
+        // y 轴
+        yAxis: {
+            // data: [1, 2, 3, 1]
+            axisLine: { show: true }
+        },
+        series: {
+            type: "bar",
+            data: [1, 2, 3, 4],
+            color: "skyblue"
+        }
+
+    })
+</script>
+
+</html>

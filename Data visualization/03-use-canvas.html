@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 5px solid rgb(54, 126, 123);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600px" height="450"></canvas>
+</body>
+<script>
+    let canvas = document.querySelector('canvas');
+    // 获取画布上下文
+    let ctx = canvas.getContext('2d'); // 3d ：webGL
+    ctx.fillStyle = "skyblue";
+    ctx.beginPath(); // 开启一段新的路径进行绘画
+    // 绘制圆形 x,y,radius,begin arc,end arc,whether clockwise （anticlockwise）
+    ctx.arc(100, 100, 50, 0 * Math.PI, 1.6 * Math.PI, false);
+    // 绘制线段
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 10;
+    ctx.fill();
+    ctx.closePath();
+    ctx.clearRect(50, 50, 60, 60); // 清理画布
+    // 所有的样式设定一定要在绘制之前。
+    ctx.font = "50px 微软雅黑";
+    ctx.fillStyle = "red";
+    ctx.fillText("Hello world.", 200, 200);
+
+    ctx.stroke();
+</script>
+
+</html>
