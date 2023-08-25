@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>v-model:钱数{{ money }}{{pageNo}}{{pageSize}}</h1>
+    <h1>v-model:钱数{{ money }} pageNo : {{pageNo}} pageSize: {{pageSize}}</h1>
     <input type="text" v-model="info" />
     <hr />
     <!-- props:父亲给儿子数据 -->
@@ -27,12 +27,13 @@ import Child1 from "./Child1.vue";
 import { ref } from "vue";
 let info = ref("");
 //父组件的数据钱数
-let money = ref(10000);
+let money = ref(10);
 //自定义事件的回调
-const handler = (num) => {
-  //将来接受子组件传递过来的数据
-  money.value = num;
-};
+// const handler = (num) => {
+//   //将来接受子组件传递过来的数据
+//   console.log("???");
+//   money.value = num;
+// };
 
 //父亲的数据
 let pageNo = ref(1);

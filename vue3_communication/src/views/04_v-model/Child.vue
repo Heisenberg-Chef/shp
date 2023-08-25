@@ -12,7 +12,7 @@ let $emit = defineEmits(['update:modelValue']);
 //子组件内部按钮的点击回调
 const handler = ()=>{
    //触发自定义事件
-   $emit('update:modelValue',props.modelValue+1000);
+   $emit('update:modelValue',props.modelValue+1);
 }
 </script>
 

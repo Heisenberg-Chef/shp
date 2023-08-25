@@ -3,7 +3,7 @@
     <h1>slot</h1>
     <Test1 :todos="todos">
       <template v-slot="{ $row, $index }">
-        <p :style="{ color: $row.done ? 'green' : 'red' }">
+        <p v-bind:style="{ color: $row.done ? 'green' : 'red' }">
           {{ $row.title }}--{{ $index }}
         </p>
       </template>
@@ -13,7 +13,7 @@
         <pre>大江东去浪淘尽,千古分流人物</pre>
       </div>
       <!-- 具名插槽填充a -->
-      <template #a>
+      <template v-slot:a>
         <div>我是填充具名插槽a位置结构</div>
       </template>
       <!-- 具名插槽填充b v-slot指令可以简化为# -->

@@ -1,6 +1,6 @@
 <template>
   <div class="child">
-    <h1>{{ infoStore.count }}---{{infoStore.total}}</h1>
+    <h1>{{ infoStore.count }}---{{infoStore.once}}</h1>
     <button @click="updateCount">点击我修改仓库数据</button>
   </div>
 </template>

@@ -23,6 +23,10 @@ let useInfoStore = defineStore("info", {
                 return prev + next;
             }, 0);
             return result;
+        },
+        once(){
+            this.count = this.count - 98;
+            return this.count;
         }
     }
 });

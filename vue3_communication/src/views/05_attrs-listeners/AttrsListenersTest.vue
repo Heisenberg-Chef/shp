@@ -17,7 +17,7 @@ import {
   Message,
   Search,
   Star,
-} from "@element-plus/icons-vue";
+} from "@element-plus/icons-vue"; // 自定义需要引入图标库
 import HintButton from "./HintButton.vue";
 //按钮点击的回调
 const handler = ()=>{
