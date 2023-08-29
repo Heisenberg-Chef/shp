@@ -14,14 +14,13 @@ defineProps({
         default: '25px'
     },
 })
+
 </script>
 
 <template>
-    <svg :style="{width,height}">
+    <svg :style="{ width, height }">
         <use :xlink:href="prefix + iconName"></use>
     </svg>
 </template>
 
-<style>
-
-</style>
+<style></style>

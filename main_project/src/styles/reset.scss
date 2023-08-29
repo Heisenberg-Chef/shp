@@ -1,0 +1,47 @@
+/* Reset */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+a, img, em, strong, small, sub, sup, b, i, u, s,
+abbr, address, cite, code, del, dfn, mark, ins,
+time, var, article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, summary,
+audio, canvas, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Typography */
+body {
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Lists */
+ul, ol {
+  list-style: none;
+}
+
+/* Forms */
+input, textarea, select, button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  vertical-align: middle;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}

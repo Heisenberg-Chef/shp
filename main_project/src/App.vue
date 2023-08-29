@@ -2,24 +2,20 @@
 import { ElButton } from 'element-plus';
 import { Plus } from "@element-plus/icons-vue"
 import { Edit } from "@element-plus/icons-vue"
+import { onMounted } from 'vue';
+import request from '@/utils/requests.ts'
+import { reqLogin } from '@/api/user/index'
+
+onMounted(() => {
+
+});
 
 </script>
 
 <template>
   <div>
-    <el-button type="primary" size="default" :icon="Plus">主要按钮</el-button>
-    <el-button type="success" size="small" :icon="Edit">修改按钮</el-button>
-    <el-pagination
-      :page-sizes="[100, 200, 300, 400]"
-      layout="sizes, prev, pager, next"
-      :total="1000"
-    />
-    </div>
-    <br>
-    <svg>
-      <use xlink:href="#icon-share"></use>
-    </svg>
-
+    <RouterView></RouterView>
+  </div>
 </template>
 
 <style scoped></style>
