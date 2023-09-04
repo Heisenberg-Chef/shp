@@ -46,6 +46,7 @@ export default defineConfig(({ command, mode }) => {
     },
     // 代理
     server: {
+      port: 3000,
       proxy: {
         [env.VITE_APP_BASE_API]: {
           target: env.VITE_SERVE,

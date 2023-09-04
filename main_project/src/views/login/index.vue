@@ -3,33 +3,17 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form
-          ref="loginForms"
-          class="login_form"
-          :model="loginForm"
-          :rules="rules"
-        >
-          <h1>Hello</h1>
-          <h2>欢迎来到硅谷甄选</h2>
+        <el-form ref="loginForms" class="login_form" :model="loginForm" :rules="rules">
+          <h1>你好~</h1>
+          <h2>后台模板</h2>
           <el-form-item prop="username">
             <el-input :prefix-icon="User" v-model="loginForm.username" />
           </el-form-item>
           <el-form-item prop="password">
-            <el-input
-              type="password"
-              :prefix-icon="Lock"
-              :show-password="true"
-              v-model="loginForm.password"
-            />
+            <el-input type="password" :prefix-icon="Lock" :show-password="true" v-model="loginForm.password" />
           </el-form-item>
           <el-form-item>
-            <el-button
-              class="login_btn"
-              type="primary"
-              size="default"
-              :loading="loading"
-              @click="login"
-            >
+            <el-button class="login_btn" type="primary" size="default" :loading="loading" @click="login">
               登录
             </el-button>
           </el-form-item>
@@ -117,15 +101,18 @@ const login = async () => {
     background: url('@/assets/images/login_form.png') no-repeat;
     background-size: cover;
     padding: 40px;
+
     h1 {
       color: #fff;
       font-size: 40px;
     }
+
     h2 {
       color: #fff;
       font-size: 20px;
       margin: 20px 0px;
     }
+
     .login_btn {
       width: 100%;
     }
