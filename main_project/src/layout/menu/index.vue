@@ -2,14 +2,12 @@
   <template v-for="item in menuList" :key="item.path">
     <!-- 没有子路由 -->
     <template v-if="!item.children">
-      <el-menu-item
-        v-if="!item.meta.hidden"
-        :index="item.path"
-        @click="goRoute"
-      >
+      <el-menu-item v-if="!item.meta.hidden" :index="item.path" @click="goRoute">
         <el-icon>
           <component :is="item.meta.icon"></component>
         </el-icon>
+        <!-- #title id选择器是elm plz 自带的，用来menu条的文字的，为了防止折叠之后图标消失 -->
+        <!-- component图标放在外面 -->
         <template #title>
           <span>{{ item.meta.title }}</span>
         </template>
@@ -18,11 +16,7 @@
 
     <!-- 有子路由，但是只有一个子路由 -->
     <template v-if="item.children && item.children.length === 1">
-      <el-menu-item
-        v-if="!item.children[0].meta.hidden"
-        :index="item.children[0].path"
-        @click="goRoute"
-      >
+      <el-menu-item v-if="!item.children[0].meta.hidden" :index="item.children[0].path" @click="goRoute">
         <el-icon>
           <component :is="item.children[0].meta.icon"></component>
         </el-icon>
@@ -33,10 +27,7 @@
     </template>
 
     <!-- 有子路由，有多个子路由(大于一个) -->
-    <el-sub-menu
-      v-if="item.children && item.children.length > 1"
-      :index="item.path"
-    >
+    <el-sub-menu v-if="item.children && item.children.length > 1" :index="item.path">
       <template #title>
         <el-icon>
           <component :is="item.meta.icon"></component>

@@ -4,12 +4,13 @@
       <div class="box">
         <img :src="userStore.avatar" alt="" class="avatar" />
         <div class="bottom">
-          <h3 class="title">{{ getTime() }}好呀{{ userStore.username }}</h3>
+          <h3 class="title">{{ getTime() }}好呀~&nbsp;{{ userStore.username }}</h3>
           <p class="subtitle">后台模板</p>
         </div>
       </div>
     </el-card>
     <div class="bottoms">
+      <!-- 矢量图 -->
       <svg-icon name="welcome" width="600px" height="300px"></svg-icon>
     </div>
   </div>

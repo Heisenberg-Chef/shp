@@ -5,6 +5,7 @@ import Category from './Category/index.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import type { App, Component } from 'vue'
 
+// 自定义组件
 const components: { [name: string]: Component } = { SvgIcon, Category }
 
 export default {

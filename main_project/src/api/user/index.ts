@@ -11,6 +11,9 @@ enum API {
   LOGIN_URL = '/admin/acl/index/login', // 登录
   USERINFO_URL = '/admin/acl/index/info', // 获取用户信息
   LOGOUT_RUL = '/admin/acl/index/logout', // 退出登录
+  MOCK_LOGIN_URL = '/user/login', //请求地址 mock
+  MOCK_USER_INFO = '/user/info', // 请求用户信息 mock
+
 }
 
 // 登录

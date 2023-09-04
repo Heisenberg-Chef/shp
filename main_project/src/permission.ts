@@ -33,7 +33,7 @@ router.beforeEach(async (to: any, _from: any, next: any) => {
       } else {
         try {
           await userStore.userInfo()
-          next({ ...to })
+          next({ ...to }) // 创建一个to的浅拷贝
         } catch (error) {
           await userStore.userLogout()
           next({ path: '/login', query: { redirect: to.path } })

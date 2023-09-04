@@ -2,6 +2,7 @@
   <div>
     <RouterView v-slot="{ Component }">
       <Transition name="fade" mode="out-in">
+        <!-- 动态渲染标签 -->
         <component :is="Component" v-if="flag"></component>
       </Transition>
     </RouterView>
@@ -41,9 +42,11 @@ export default {
 .fade-enter-from {
   opacity: 0;
 }
+
 .fade-enter-active {
-  transition: all 0.3s;
+  transition: all 0.3s; // 过度的
 }
+
 .fade-enter-to {
   opacity: 1;
 }

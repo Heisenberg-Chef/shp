@@ -1,17 +1,17 @@
 <template>
   <el-icon class="icon" @click="changeIcon">
+    <!-- 通过是否折叠判断图标是 EXPAND 还是 FOLD -->
     <component :is="layoutSettingStore.fold ? 'Expand' : 'Fold'"></component>
   </el-icon>
+  <!-- 分割图片是一个向右侧的箭头 -->
   <el-breadcrumb separator-icon="ArrowRight">
+    <!-- 面包屑中的信息由route.path种已经记载了 -->
     <template v-for="item in route.matched" :key="item.path">
-      <el-breadcrumb-item
-        v-show="item.meta.title"
-        :to="item.path"
-        class="breadcrumb-item"
-      >
+      <el-breadcrumb-item v-show="item.meta.title" :to="item.path" class="breadcrumb-item">
         <el-icon>
           <component :is="item.meta.icon"></component>
         </el-icon>
+        <!-- elm 定义好的 -->
         <span class="title">{{ item.meta.title }}</span>
       </el-breadcrumb-item>
     </template>
@@ -41,8 +41,10 @@ export default {
 .icon {
   margin-right: 10px;
 }
+
 .breadcrumb-item {
   margin-top: 3px;
+
   .title {
     margin: 0px 5px;
     vertical-align: top;

@@ -5,12 +5,7 @@
         添加品牌
       </el-button>
       <el-table :data="tableData" border>
-        <el-table-column
-          type="index"
-          label="序号"
-          width="80"
-          align="center"
-        ></el-table-column>
+        <el-table-column type="index" label="序号" width="80" align="center"></el-table-column>
         <el-table-column prop="tmName" label="品牌名称"></el-table-column>
         <el-table-column label="品牌Logo">
           <template v-slot="{ row }">
@@ -19,19 +14,10 @@
         </el-table-column>
         <el-table-column label="品牌操作">
           <template v-slot="{ row }">
-            <el-button
-              size="small"
-              icon="Edit"
-              type="warning"
-              @click="updateTrademark(row)"
-            ></el-button>
+            <el-button size="small" icon="Edit" type="warning" @click="updateTrademark(row)"></el-button>
 
-            <el-popconfirm
-              :title="`您确定要删除${row.tmName}吗?`"
-              width="250px"
-              icon="Delete"
-              @confirm="deleteTradkmark(row.id)"
-            >
+            <el-popconfirm :title="`您确定要删除${row.tmName}吗?`" width="250px" icon="Delete"
+              @confirm="deleteTradkmark(row.id)">
               <template #reference>
                 <el-button size="small" icon="Delete" type="danger"></el-button>
               </template>
@@ -39,51 +25,24 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        v-model:current-page="pageNo"
-        v-model:page-size="limit"
-        :page-sizes="[3, 5, 7, 9]"
-        background
-        layout="prev, pager, next, jumper, ->, sizes, total"
-        :total="total"
-        @size-change="getHasTrademark"
-        @current-change="getHasTrademark"
-      />
+      <el-pagination v-model:current-page="pageNo" v-model:page-size="limit" :page-sizes="[3, 5, 7, 9]" background
+        layout="prev, pager, next, jumper, ->, sizes, total" :total="total" @size-change="getHasTrademark"
+        @current-change="getHasTrademark" />
     </el-card>
 
     <!-- 添加/编辑品牌对话框 -->
-    <el-dialog
-      v-model="dialogFormVisible"
-      :title="`${trademarkParams.id ? '修改' : '添加'}品牌`"
-      @close="cancel"
-    >
-      <el-form
-        ref="formRef"
-        label-width="100px"
-        :model="trademarkParams"
-        :rules="rules"
-      >
+    <el-dialog v-model="dialogFormVisible" :title="`${trademarkParams.id ? '修改' : '添加'}品牌`" @close="cancel">
+      <el-form ref="formRef" label-width="100px" :model="trademarkParams" :rules="rules">
         <el-form-item label="品牌名称" prop="tmName">
-          <el-input
-            v-model="trademarkParams.tmName"
-            placeholder="请输入品牌名称"
-          />
+          <el-input v-model="trademarkParams.tmName" placeholder="请输入品牌名称" />
         </el-form-item>
         <el-form-item label="品牌Logo" prop="logoUrl">
-          <el-upload
-            class="avatar-uploader"
-            action="/api/admin/product/fileUpload"
-            :show-file-list="false"
-            :on-success="handleAvatarSuccess"
-            :before-upload="beforeAvatarUpload"
-          >
-            <img
-              v-if="trademarkParams.logoUrl"
-              :src="trademarkParams.logoUrl"
-              class="avatar"
-              alt="图片加载失败"
-            />
-            <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+          <el-upload class="avatar-uploader" action="/api/admin/product/fileUpload" :show-file-list="false"
+            :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+            <img v-if="trademarkParams.logoUrl" :src="trademarkParams.logoUrl" class="avatar" alt="图片加载失败" />
+            <el-icon v-else class="avatar-uploader-icon">
+              <Plus />
+            </el-icon>
           </el-upload>
         </el-form-item>
       </el-form>
@@ -250,13 +209,16 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (response) => {
 .el-table {
   margin: 10px 0px;
 }
+
 img {
   width: 100px;
   height: 100px;
 }
+
 .el-form {
   width: 80%;
 }
+
 .avatar-uploader {
   .avatar {
     width: 178px;

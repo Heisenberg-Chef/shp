@@ -1,29 +1,13 @@
 <template>
-  <el-button
-    size="small"
-    circle
-    icon="Refresh"
-    @click="updateRefresh"
-  ></el-button>
-  <el-button
-    size="small"
-    circle
-    icon="FullScreen"
-    @click="fullScreen"
-  ></el-button>
+  <el-button size="small" circle icon="Refresh" @click="updateRefresh"></el-button>
+  <el-button size="small" circle icon="FullScreen" @click="fullScreen"></el-button>
   <el-popover placement="bottom" title="主题设置" :width="260" trigger="hover">
     <template #reference>
       <el-button size="small" circle icon="Setting"></el-button>
     </template>
     <el-form>
       <el-form-item label="主题颜色：">
-        <el-color-picker
-          v-model="color"
-          show-alpha
-          :predefine="predefineColors"
-          size="small"
-          @change="pickerChange"
-        />
+        <el-color-picker v-model="color" show-alpha :predefine="predefineColors" size="small" @change="pickerChange" />
       </el-form-item>
       <el-form-item label="暗黑模式：">
         <el-switch size="small" v-model="dark" @change="switchChange" />
