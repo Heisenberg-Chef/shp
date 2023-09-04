@@ -1,14 +1,21 @@
-import SvgIcon from "./SvgIcon/index.vue"
+// 自定义插件 (统一注册全局组件)
+import SvgIcon from './SvgIcon/index.vue'
+import Category from './Category/index.vue'
+// element-plus提供的所有图标组件
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import type { App, Component } from 'vue'
 
-const allGlobalComponent = { SvgIcon };
-// 对外暴露插件对象
+const components: { [name: string]: Component } = { SvgIcon, Category }
+
 export default {
-    // 必须叫做install方法
-    install(app) {
-        // 注册项目全部的组件
-        Object.keys(allGlobalComponent).forEach(key => {
-            // 注册为全局组件 - k v 一致
-            app.component(key, allGlobalComponent[key]);
-        })
+  install(app: App) {
+    // 将自己的组件注册全局组件
+    Object.keys(components).forEach((key: string) => {
+      app.component(key, components[key])
+    })
+    // 将element-plus提供的所有icon注册为全局组件
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+      app.component(key, component)
     }
+  },
 }

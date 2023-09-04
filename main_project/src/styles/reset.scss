@@ -1,47 +1,176 @@
-/* Reset */
-html, body, div, span, h1, h2, h3, h4, h5, h6, p,
-a, img, em, strong, small, sub, sup, b, i, u, s,
-abbr, address, cite, code, del, dfn, mark, ins,
-time, var, article, aside, details, figcaption, figure,
-footer, header, hgroup, nav, section, summary,
-audio, canvas, video {
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font: inherit;
+  font-size: 100%;
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
+  border: 0;
 }
 
-/* Typography */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
 body {
-  line-height: 1.6;
-  font-family: Arial, sans-serif;
+  line-height: 1;
 }
 
-/* Links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Lists */
-ul, ol {
+ol,
+ul {
   list-style: none;
 }
 
-/* Forms */
-input, textarea, select, button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  font: inherit;
-  vertical-align: middle;
+blockquote,
+q {
+  quotes: none;
+  &:before,
+  &:after {
+    content: "";
+    content: none;
+  }
 }
 
-/* Images */
-img {
-  max-width: 100%;
-  height: auto;
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+input,
+textarea,
+button {
+  font-family: inhert;
+  font-size: inherit;
+  color: inherit;
+}
+
+select {
+  text-indent: 0.01px;
+  text-overflow: "";
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+code,
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
