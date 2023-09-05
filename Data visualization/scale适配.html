@@ -5,49 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
 
-        .box {
-            width: 1280px;
-            height: 720px;
-            background-color: bisque;
-            transform: left top;
-            left: 50%;
-            top: 50%;
-        }
-
-        .top {
-            width: 5.2vw;
-            height: 9.26vh;
-            background-color: aquamarine;
-            margin-left: 2.6vw;
-        }
-
-
-        .bottom {
-            width: 5.2vw;
-            height: 9.26vh;
-            background-color: burlywood;
-            margin-left: 2.6vw;
-            margin-top: 3vh;
-        }
-    </style>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        background: url('./bg.png') no-repeat;
+        background-size: cover;
+    }
+
+    .top {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        margin-left: 50px;
+    }
+
+
+    .bottom {
+        width: 100px;
+        height: 100px;
+        background-color: burlywood;
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+
+    .box {
+        width: 1024px;
+        height: 680px;
+        background-color: cadetblue;
+        transform: scale(1.2);
+        position: fixed;
+        transform-origin: left top;
+        left: 50%;
+        top: 50%;
+    }
+</style>
+
 
 <body>
-    <div class="box">
-        <div class="top">
-            <p>ABC</p>
-        </div>
-        <div class="bottom">
-            <!-- 文字大小无法适配 -->
-            <p>Heisenberg 's ice , tight tight tight!!</p>
+    <div class="container">
+        <div class="box">
+            <div class="top">我是祖国的老花骨朵。</div>
+            <div class="bottom">我是绝命毒师。</div>
         </div>
     </div>
 </body>
 
 </html>
+<script>
+    // 控制数据大屏的放大与缩小
+    let box = document.querySelector('.box')
+
+    // box 元素的 样式 中的  tranform属性，的scale来进行缩放
+    // 通过 translate 标签对box进行偏移（左、上 各 50%屏幕）
+    // 通过${}插值表达式将函数的值动态进行计算
+    box.style.transform = `scale(${getScale()}) translate(-50%,-50%) `
+    // 计算缩放比例
+    function getScale(w = 1024, h = 680) {
+        const ww = window.innerWidth / w;
+        const wh = window.innerHeight / h;
+        return ww < wh ? ww : wh; // 用小的
+    }
+    // 一旦window给边尺寸的事件触发，重新计算box的缩放
+    window.onresize = () => {
+        box.style.transform = `scale(${getScale()}) translate(-50%,-50%) `
+    }
+</script>
