@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="screen" ref="screenRef">
+    <div class="screen" ref="screen">
       <div class="top">
         <Top />
       </div>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import Top from './components/top/index.vue'
 import Tourist from './components/tourist/index.vue'
 import Sex from './components/sex/index.vue'
@@ -35,21 +35,17 @@ import Line from './components/line/index.vue'
 import Rank from './components/rank/index.vue'
 import Year from './components/year/index.vue'
 import Counter from './components/counter/index.vue'
-
-const screenRef = ref()
-// 缩放的比例
+let screen = ref()
 const getScale = (w = 1920, h = 1080) => {
   const ww = window.innerWidth / w
   const wh = window.innerHeight / h
   return ww < wh ? ww : wh
 }
-
 onMounted(() => {
-  screenRef.value.style.transform = `scale(${getScale()}) translateX(-50%)`
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
 })
-
 window.onresize = () => {
-  screenRef.value.style.transform = `scale(${getScale()}) translateX(-50%)`
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
 }
 </script>
 
@@ -57,25 +53,29 @@ window.onresize = () => {
 .container {
   width: 100vw;
   height: 100vh;
-  background: url('./images/bg.png') no-repeat;
+  background-image: url(./images/bg.png);
   background-size: cover;
   .screen {
-    position: fixed;
-    left: 50%;
-    transform-origin: left top;
     width: 1920px;
     height: 1080px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform-origin: top left;
     .top {
       width: 100%;
       height: 40px;
     }
     .bottom {
       display: flex;
+      .right {
+        flex: 1;
+      }
       .left {
         display: flex;
-        flex-direction: column;
         flex: 1;
         height: 1040px;
+        flex-direction: column;
         .tourist {
           flex: 1.2;
         }
@@ -91,15 +91,17 @@ window.onresize = () => {
         display: flex;
         flex-direction: column;
         .map {
-          flex: 4;
+          flex: 2.5;
         }
         .line {
-          flex: 1.4;
+          flex: 1;
         }
       }
+
       .right {
-        flex: 1;
         display: flex;
+        flex: 1;
+        height: 1040px;
         flex-direction: column;
         .rank {
           flex: 1.2;
